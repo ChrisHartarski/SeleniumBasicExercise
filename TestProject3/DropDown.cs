@@ -22,7 +22,15 @@ namespace TestProject3
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
         }
 
-        [Test]
+        [TearDown]
+        public void TearDown()
+        {
+            // Quit the driver
+            driver.Quit();
+            driver.Dispose();
+        }
+
+            [Test]
         public void TestSelectFromDropDown()
         {
             // Launch Chrome browser with the given URL
@@ -82,8 +90,7 @@ namespace TestProject3
                 }
             }
 
-            // Quit the driver
-            driver.Quit();
+            
         }
     }
 }
